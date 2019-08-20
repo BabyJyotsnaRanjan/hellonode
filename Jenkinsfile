@@ -11,12 +11,12 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("prabeesh/hellonode")
+        app = docker.build("<Docker_ID>/hellonode")
     }
 
    
     stage('Push image') {
-            sh ' docker login -u prabeesh -p Mindtree@2019'
+            sh ' docker login -u <Docker_ID> -p <Docker_Password>'
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
        /* }*/
